@@ -1,0 +1,54 @@
+Add a new chapter to the game called **“The Graphing Grounds.”**
+
+### Purpose
+Introduce graphing concepts such as slope, y-intercept, and linear equations in the form y = mx + b.
+
+### Narrative Context
+After stabilizing the Variable Valley, ARIA detects new corruption in the *Graphing Grounds*. 
+Here, lines themselves have fractured — slopes distorted, intercepts misaligned. 
+The Protocol Agent must restore balance by recalibrating each “Light Path” (line) to its correct slope and intercept.
+
+### Gameplay Requirements
+1. **Randomized Graphing Problems**
+   - Create a small database of at least 8 linear equation problems of the form y = mx + b.
+   - Each puzzle entry should contain:
+     ```python
+     graph_puzzles = [
+       {"question": "Find the slope of the line passing through (2, 3) and (5, 9)", 
+        "answer": "2", 
+        "hints": ["Use m = (y₂ - y₁) / (x₂ - x₁)", "Subtract 3 from 9, subtract 2 from 5, then divide."]},
+       {"question": "What is the y-intercept of y = 3x - 4?", 
+        "answer": "-4",
+        "hints": ["Look for the constant term in y = mx + b."]},
+       {"question": "Which equation has slope ½ and y-intercept 3?", 
+        "answer": "y = 0.5x + 3",
+        "hints": ["Substitute m = ½ and b = 3 into y = mx + b."]}
+     ]
+     ```
+
+2. **Gameplay Flow**
+   - ARIA introduces the concept of *slope* and *intercept*.
+   - Randomly select an unsolved puzzle from `graph_puzzles`.
+   - If player answers correctly:
+     - Print a short story sequence: “The Light Path stabilizes; slope restored.”
+     - Increase `mastery_graph` by 1.
+   - If incorrect:
+     - Display one hint from the puzzle’s list.
+     - After 3 wrong attempts, reveal the answer with ARIA’s dialogue (“Let’s analyze it together…”).
+
+3. **Progress System**
+   - Track progress with `mastery_graph` (0–5).
+   - After 5 correct problems, trigger a short cutscene text:
+     “The Graphing Grounds shimmer in harmony. The Archive’s pathways are whole again.”
+
+4. **Maintain Consistency**
+   - Keep the same UI style (text-based, ARIA feedback).
+   - Use ASCII dividers or color codes for clarity.
+   - Add this chapter as `chapter_graphing()` function, called after Variable Valley completion.
+
+5. **Educational Focus**
+   - Include 3 puzzle types:
+     - Calculate slope from two points.
+     - Identify y-intercept from equation.
+     - Write equation from slope and intercept.
+   - Keep multiple attempts, adaptive hints, and narrative reinforcement.

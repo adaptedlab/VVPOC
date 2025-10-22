@@ -1,0 +1,61 @@
+Create a playable prototype for a text-based educational adventure game called **The Variable Valley**.
+
+**Game Overview:**
+The Variable Valley is a narrative-driven algebra puzzle adventure. The player is the Protocol Agent, reactivated by an AI companion named ARIA to repair the broken Archive — a crystalline world of corrupted math logic. The goal is to solve algebra puzzles to restore order and progress the story.
+
+---
+
+### 🧩 Core Gameplay Loop
+1. **Intro Sequence**
+   - ARIA introduces the world and the player’s role.
+   - The player chooses a dialogue option (simple numbered choices).
+   - After choices, ARIA assigns the first “stabilization task.”
+
+2. **Math Puzzles**
+   - Include 3 algebra puzzles aligned with CCSS A.SSE.A (Variables and Expressions):
+     - Puzzle 1: Solve for x → `x + 3 = 7`
+     - Puzzle 2: Simplify expression → `2(x + 4)`
+     - Puzzle 3: Identify the correct equivalent form of an equation
+   - Each puzzle accepts player input and gives feedback.
+     - If correct → display narrative snippet (e.g. “The Variable Shrine stabilizes.”)
+     - If incorrect → ARIA gives a progressively detailed hint.
+
+3. **Adaptive Feedback**
+   - Implement a small hint system:
+     - First incorrect → “ARIA: Try isolating the variable.”
+     - Second incorrect → “ARIA: Remember to subtract the same number from both sides.”
+     - Third incorrect → Reveal the correct solution and continue.
+
+4. **Mastery Tracking**
+   - Create a variable `mastery` (integer starting at 0).
+   - Each correct puzzle increases mastery by 1.
+   - At mastery 3, trigger a message: “You have restored the Variable Valley sector.”
+
+5. **Narrative Progression**
+   - Between puzzles, display short story text describing the Archive repairing.
+   - Include 2–3 branching dialogue choices that slightly change ARIA’s responses.
+
+6. **End of Demo**
+   - When all puzzles are completed, display a simple ending screen:
+     “The Archive hums with renewed energy. ARIA: ‘This is only the beginning.’”
+   - Optionally offer to restart.
+
+---
+
+### 🧠 Design Notes
+- Keep everything text-based (no graphics).
+- Use clear formatting with line breaks and small ASCII dividers like “====” between sections.
+- Write clean, well-commented Python code with functions like `intro()`, `puzzle_one()`, etc.
+- Organize story data as lists or dictionaries for easy modification later.
+- Include placeholder variables for future features (like `chapter = 1` or `mastery_meter`).
+
+---
+
+### ✅ Deliverable
+A single Python file that runs in Replit’s console, containing:
+- Title screen
+- Story intro
+- 3 puzzles with adaptive hints
+- Mastery tracking
+- Ending message
+- Modular functions for clarity
